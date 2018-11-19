@@ -7,11 +7,10 @@ use App\Question;
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth',['except'=>'index','show']);
+    }
     public function index()
     {
         // go to the model and get a group of records
