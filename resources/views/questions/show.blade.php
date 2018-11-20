@@ -5,7 +5,9 @@
         <p class="lead">
             {{ $question->description }}
         </p>
-
+        <p>
+            Submitted By: {{ $question->user->name }} on {{ $question->created_at->diffForHumans() }}
+        </p>
         <hr/>
         <!-- display all of the answer for this question -->
         @if ($question->answers->count() > 0)

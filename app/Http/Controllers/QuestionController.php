@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use Auth;
 
 class QuestionController extends Controller
 {
@@ -46,7 +47,7 @@ class QuestionController extends Controller
         $question = new Question();
         $question->title = $request->title;
         $question->description = $request->description;
-        $question->save();
+        $question->user()->associate(Auth::id());
         // if succesfully we want to redirect
         if($question->save()){
             return redirect()->route('questions.show', $question->id);
