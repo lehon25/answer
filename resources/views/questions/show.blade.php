@@ -6,7 +6,7 @@
             {{ $question->description }}
         </p>
         <p>
-            Submitted By: {{ $question->user->name }} on {{ $question->created_at->diffForHumans() }}
+            Submitted By: {{ $question->user->name }}, {{ $question->created_at->diffForHumans() }}
         </p>
         <hr/>
         <!-- display all of the answer for this question -->
@@ -16,6 +16,7 @@
                 <div class="panel-body">
                     <p>{{ $answer->content }}
                     </p>
+                    <h6>Answered By: {{ $answer->user->name }}, {{ $answer->created_at->diffForHumans()}}</h6>
                 </div>
             </div>
         @endforeach

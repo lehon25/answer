@@ -78,7 +78,11 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question= Question::findOrFail($id);
+        if ($question->user->id !=Auth::id){
+            return abort(403);
+        }
+        return view('questions.edit');
     }
 
     /**
@@ -90,7 +94,12 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question= Question::findOrFail($id);
+        if ($question->user->id !=Auth::id){
+            return abort(403);
+        }
+        // update the question
+
     }
 
     /**
