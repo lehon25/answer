@@ -14,12 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 })->name('index');
-Route::get('/about','PageController@about')->name('about');
-Route::get('/contact', 'PageController@contact')->name('contact');
 Route::post('/contact', 'PageController@submitContact');
 Route::resource('/questions','QuestionController');
 Route::resource('/answers','AnswersController',['except'=>['index','create','show']]);
-
+Route::get('/contact','PageController@contact')->name('contact');
+Route::post('/contact','PageController@sendContact');
 
 Auth::routes();
 

@@ -17,5 +17,5 @@ Answer App is like Stackoverflow clone
 clone this repository
 composer install
 npm install
-npm run dev
+php artisan serve
 

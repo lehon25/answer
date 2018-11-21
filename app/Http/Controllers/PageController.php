@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function about()
+    public function sendContact(Request $request)
     {
-        return "About Us Page";
+        // send and process the email
     }
     public function contact()
     {
-        return "Contact Page";
+        return view('contact');
     }
     public function submitContact()
     {
