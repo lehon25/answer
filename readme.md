@@ -3,7 +3,16 @@
 ## what is Answer App?
 Answer App is like Stackoverflow clone
 ## Feature
-- Asking question
+- Authenticate User 
+- Authorize User
+- Asking Auestion
 - Answer Question
+# Technology
+- Laravel 5.7
+- Bootstrap
+- Javascript 
+- Laravel Mix
 # Run
-- Run pagination vendor with php artisan "php artisan vendor:publish --tag=laravel-pagination"
+- Development 
+npm run dev
+
