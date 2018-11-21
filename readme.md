@@ -14,5 +14,8 @@ Answer App is like Stackoverflow clone
 - Laravel Mix
 # Run
 - Development 
+clone this repository
+composer install
+npm install
 npm run dev
 

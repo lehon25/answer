@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-        <link href="{{ asset('css/app.css') }}" rel= "stylesheet" type="text/css">
+        <link href="{{ mix('css/app.css') }}" rel= "stylesheet" type="text/css">
     </head>
     <body>
      @include('_includes/nav/topnav')
     @yield('content')
-        <script src="{{ asset('js/app.js") }}"></script>
+        <script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
