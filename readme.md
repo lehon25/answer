@@ -7,15 +7,21 @@ Answer App is like Stackoverflow clone
 - Authorize User
 - Asking Auestion
 - Answer Question
+- Send Email Notifications
 # Technology
+- PHP
+- MySQL 
 - Laravel 5.7
 - Bootstrap
-- Javascript 
-- Laravel Mix
+- Javascript
 # Run
-- Development 
+
+```sh
 clone this repository
-composer install
-npm install
-php artisan serve
+setting .env
+$ composer install
+$ npm install
+$ php artisan serve
+
+```
 
