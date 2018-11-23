@@ -7,7 +7,9 @@ Answer App is like Stackoverflow clone
 - Authorize User
 - Asking Auestion
 - Answer Question
+- Send Email
 - Send Email Notifications
+- SMS Notifications
 # Technology
 - PHP
 - MySQL 
