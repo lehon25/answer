@@ -65,7 +65,7 @@ class NewAnswerSubmitted extends Notification
         $url = route('questions.show',$this->question->id);
         return (new SlackMessage)
                 ->from('Laravel Answer Bot',':robot_face:')
-                ->to('@lehon_25')
+                ->to('#random')
                 ->content("$this->name just submitted an answer to your question! Check it out now at LaravelAnswer.")
                 ->attachment(function ($attachment) use ($url) {
                   $attachment->title($this->question->title,$url)
