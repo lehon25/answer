@@ -10,6 +10,7 @@ Answer App is like Stackoverflow clone
 - Send Email
 - Send Email Notifications
 - SMS Notifications
+- Slack Notifications
 # Technology
 - PHP
 - MySQL 

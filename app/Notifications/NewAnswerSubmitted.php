@@ -62,9 +62,21 @@ class NewAnswerSubmitted extends Notification
     }
     public function toSlack($notifiable)
     {
+        $url = route('questions.show',$this->question->id);
         return (new SlackMessage)
-                ->content("$this->name just submitted an answer to your question! Check it out now at LaravelAnswer.");
-    }
+                ->from('Laravel Answer Bot',':robot_face:')
+                ->to('@lehon_25')
+                ->content("$this->name just submitted an answer to your question! Check it out now at LaravelAnswer.")
+                ->attachment(function ($attachment) use ($url) {
+                  $attachment->title($this->question->title,$url)
+                            ->fields([
+                                'Question Title'=>$this->question->title,
+                                'Submitter\'s Name' => $this->name,
+                                'Answer' => $this->answer->content,
+                                'Validated User' => ':+1:'
+                            ]);
+                });
+            }
 
     /**
      * Get the array representation of the notification.
