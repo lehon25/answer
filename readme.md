@@ -5,12 +5,13 @@ Answer App is like Stackoverflow clone
 ## Feature
 - Authenticate User 
 - Authorize User
-- Asking Auestion
+- Asking Question
 - Answer Question
 - Send Email
 - Send Email Notifications
 - SMS Notifications
 - Slack Notifications
+- Upload File
 # Technology
 - PHP
 - MySQL 
