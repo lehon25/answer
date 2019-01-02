@@ -1,7 +1,7 @@
 @extends('template')
 @section('content')
 <div class="container">
-        <img class="rounded float-right" src="{{ asset('storage/'.$user->profile_pic) }}" style="max-height:100px;" />
+        <img class="rounded float-right" src="{{ $user->profile_pic }}" style="max-height:100px;" />
     <h1>{{ $user->name }}'s Profile</h1>
 
     <p>

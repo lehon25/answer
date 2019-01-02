@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Storage;
 use File;
+use Auth;
 
 class UploadController extends Controller
 {
@@ -14,8 +15,15 @@ class UploadController extends Controller
     }
     public function postUpload(Request $request)
     {
+        $user = Auth::user();
         $file = $request->file('picture');
-        Storage::disk('public')->put($file->getClientOriginalName(), File::get($file));
-        return redirect('/');
+        $filename = uniqid($user->id."_").".".$file->getClientOriginalExtension();
+
+        Storage::disk('s3')->put($filename, File::get($file),'public');
+
+        $url = Storage::disk('s3')->url($filename);
+        $user->profile_pic = $url;
+        $user->save();
+        return view('upload-complete')->with('filename',$filename)->with('url',$url);
     }
 }
