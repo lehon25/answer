@@ -12,11 +12,16 @@
                 </form>
 
                     <div class="col-md-6 col-md-offset-3">
-                            <h1>Formatted Address</h1>
+                            <h1>@{{ googleAdress.formatted }}</h1>
+                            <hr />
+                            <ul>
+                                <li>Lat: @{{ googleAdress.lat }}</li>
+                                <li>Lng: @{{ googleAdress/lng }}</li>
                             <hr />
                             <p>
                                 Weather Summary
                             </p>
+
                             <ul>
                             <li>Current Temp: </li>
                             <li>Feels Like: Temp</li>
@@ -28,5 +33,33 @@
 @endsection
 @section('scsripts')
 <script>
+    var app = new Vue({
+        el:'#app',
+        data: {
+            step:1,
+            userInput:'',
+            googleAdress:{
+                formatted:'',
+                lat:'',
+                lng:'',
+            }
+        },
+        methods: {
+            getWeather:function(){
+                this.step=2;
+                let vm = this;
+                axios.get('https://maps.googleapis.com/maps/api/geocode/json',{
+                    params:{
+                        address:vm.userInput
+                    }
+                }).then(function(response){
+                    vm.res=response.data.results[0];
+                    vm.googleAdress.formatted = vm.res.formatted_address;
+                    vm.googleAdress.lat = res.geometry.location.lat;
+                    vm.googleAdress.lng = res.geometry.location.lng;
+                })
+            }
+        },
+    })
 </script>
 @endsection

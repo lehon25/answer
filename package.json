@@ -11,10 +11,10 @@
     },
     "devDependencies": {
         "axios": "^0.18",
-        "babel-preset-react": "^6.23.0",
         "laravel-mix": "^2.0",
-        "lodash": "^4.17.5",
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0"
+        "lodash": "^4.17.5"
+    },
+    "dependencies": {
+        "cross-env": "^5.2.0"
     }
 }
