@@ -6,10 +6,12 @@
 
         <title>Laravel</title>
         <link href="{{ mix('css/app.css') }}" rel= "stylesheet" type="text/css">
+        @yield('styles')
     </head>
     <body>
      @include('_includes/nav/topnav')
     @yield('content')
         <script src="{{ mix('js/app.js') }}"></script>
+        @yield('scripts')
     </body>
 </html>

@@ -28,3 +28,8 @@ Route::get('/upload','UploadController@getUpload')->name('upload');
 Route::post('/upload','UploadController@postUpload');
 
 Route::get('/github/{username}','ApiController@github')->name('github');
+
+Route::get('/weather','ApiController@getWeather')->name('weather');
+Route::post('/weather','ApiController@postWeather');
+
+Route::get('/weather/js','ApiController@getWeatherJs')->name('weather.js');
