@@ -16,16 +16,16 @@
                             <hr />
                             <ul>
                                 <li>Lat: @{{ googleAdress.lat }}</li>
-                                <li>Lng: @{{ googleAdress/lng }}</li>
+                                <li>Lng: @{{ googleAdress.lng }}</li>
                             <hr />
                             <p>
-                                Weather Summary
+                                @{{ darksky.summary }}
                             </p>
 
                             <ul>
-                            <li>Current Temp: </li>
-                            <li>Feels Like: Temp</li>
-                            <li>Wind Speed: speed mph</li>
+                            <li>Current Temp: @{{ darksky.temp }}</li>
+                            <li>Feels Like: @{{ darksky.feelsLikeTemp }}</li>
+                            <li>Wind Speed: @{{ darksky.windSpeed }}mph</li>
                             </ul>
                         </div>
         </div>
@@ -42,6 +42,12 @@
                 formatted:'',
                 lat:'',
                 lng:'',
+            },
+            darksky:{
+                summary:'',
+                temp:'',
+                feelsLikeTemp:'',
+                windSpeed:''
             }
         },
         methods: {
@@ -57,6 +63,16 @@
                     vm.googleAdress.formatted = vm.res.formatted_address;
                     vm.googleAdress.lat = res.geometry.location.lat;
                     vm.googleAdress.lng = res.geometry.location.lng;
+                    const darkskyApi = '{{ env('DARKSKY_API') }}',
+                    const corsAnyWhere =  'https://cors-anywhere.herokuapp.com/';
+                    const url = `${corsAnyWhere}https://api.darksky.net/forecast/${darksyApi}/${res.geometry.location.lat}.${res.geometry.location.lng}`
+                    return axios.get()
+                }).then(function(response){
+                    let res2=response.data;
+                    vm.darksky.summary = res2.currently.summary;
+                    vm.darksky.temp=res2.currently.temperature;
+                    vm.darksky.feelsLikeTemp = res2.currently.apparentTemperature;
+                    vm.darksky.windSpeed= res2.currently.windSpeed;
                 })
             }
         },
